@@ -1,4 +1,4 @@
-package cola;
+package producer_consumer;
 
 public class Main {
 
