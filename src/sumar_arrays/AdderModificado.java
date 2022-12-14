@@ -2,20 +2,20 @@ package sumar_arrays;
 
 public class AdderModificado extends Thread {
 
-    private int[] items; //atributos que se le pasn
-    int lo, hi;
+    private int[] items; //atributos que se le pasan
+    private int from, to;
     public int result;
 
-    public AdderModificado(int[] theArray, int from, int to, Integer result) {
-        items = theArray;
-        lo = from;
-        hi = to;
-        this.result = result;
+    public AdderModificado(int[] theArray, int from, int to) {
+        this.items = theArray;
+        this.from = from;
+        this.to = to;
+        this.result = 0;
     }
 
     public void run() {
         result = 0;
-        for (int i = lo; i < hi; i++) {
+        for (int i = from; i < to; i++) {
             result += items[i];
         }
     }

@@ -2,7 +2,7 @@ package sumar_arrays;
 
 public class Adder extends Thread {
 
-    private int[] items;//atributos que se le pasn
+    private int[] items; //atributos que se le pasn
     int lo, hi;
     public int result;
 
