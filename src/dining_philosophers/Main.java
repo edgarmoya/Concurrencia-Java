@@ -10,8 +10,8 @@ public class Main {
         Table m = new Table(5);
         for (int i = 0; i < 5; i++) {
             Philosopher f = new Philosopher(m, i);
-            f.start();
-        }        
+            f.start();          
+        }          
     }
     
 }

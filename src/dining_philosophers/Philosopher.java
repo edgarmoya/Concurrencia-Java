@@ -1,7 +1,5 @@
 package dining_philosophers;
 
-import static java.lang.Thread.sleep;
-
 /**
  *
  * @author Edgar Moya
@@ -27,13 +25,13 @@ public class Philosopher extends Thread {
 
     public void pensando() {
         try {
-            sleep((long) (Math.random() * 4000));
+            Thread.sleep((long) (Math.random() * 4000));
         } catch (InterruptedException ex) {}
     }
 
     public void comiendo() {
         try {
-            sleep((long) (Math.random() * 4000));
+            Thread.sleep((long) (Math.random() * 4000));
         } catch (InterruptedException ex) {}
     }
 }

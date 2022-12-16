@@ -8,6 +8,7 @@ public class Table {
 
     private boolean[] forks;
     private Object mutex = new Object();
+    private Object dinerCond = new Object();
 
     public Table(int count) {
         forks = new boolean[count];
@@ -20,11 +21,8 @@ public class Table {
         return diner - 1;
     }
 
-    public int getRigth(int diner) {
-        if (diner == forks.length - 1) {
-            return 0;
-        }
-        return diner + 1;
+    public int getRigth(int diner) {        
+        return diner;
     }
 
     public void need(int diner) {
@@ -43,14 +41,16 @@ public class Table {
             forks[getRigth(diner)] = false;            
             System.out.println("Filósofo " + diner + " está pensando");
             System.out.println("Deja de utilizar los tenedores: "+getLeft(diner) +"-"+ getRigth(diner));
-            mutex.notify();
+        }
+        synchronized(dinerCond){
+            dinerCond.notify();
         }
     }
 
     private void esperar() {
-        synchronized (mutex) {
+        synchronized (dinerCond) {
             try {
-                mutex.wait();
+                dinerCond.wait();
             } catch (InterruptedException ex) {}
         }
     }

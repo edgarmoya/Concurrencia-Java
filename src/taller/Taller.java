@@ -8,8 +8,8 @@ public class Taller {
 
     private int capacidadDePatas;
     private int capacidadDeTableros;
-    private int nPatas = 0;
-    private int nTableros = 0;
+    private int nPatas;
+    private int nTableros;
     private Object patasCond = new Object();
     private Object tablasCond = new Object();
     private Object mesasCond = new Object();
